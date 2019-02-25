@@ -1,0 +1,8 @@
+FROM        arm64v8/busybox:glibc
+
+COPY node_exporter /bin/node_exporter
+RUN chmod +x /bin/node_exporter
+
+EXPOSE      9100
+USER        nobody
+ENTRYPOINT  [ "/bin/node_exporter" ]
